@@ -58,5 +58,5 @@
 ## Автор
 
 👤 Дмитрій Омельченко  
-📫 Email: [_____]  
-🔗 [LinkedIn ]
+📫 Email: [dmitriyomelchenko96@icloud.com]  
+🔗 [[LinkedIn ](https://www.linkedin.com/in/dmytriiomelchenko/)]
