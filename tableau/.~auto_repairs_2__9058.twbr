@@ -16,6 +16,7 @@
     <SchemaViewerObjectModel />
     <SetMembershipControl />
     <SheetIdentifierTracking />
+    <SortTagCleanup />
     <_.fcp.VConnDownstreamExtractsWithWarnings.true...VConnDownstreamExtractsWithWarnings />
     <WindowsPersistSimpleIdentifiers />
   </document-format-change-manifest>
@@ -425,7 +426,7 @@
         </drill-path>
       </drill-paths>
       <extract _.fcp.VConnDownstreamExtractsWithWarnings.true...user-specific='false' count='-1' enabled='true' object-id='' units='records'>
-        <connection access_mode='readonly' author-locale='en_US' class='hyper' dbname='Data/tableau-temp/#TableauTemp_0o8once1r8tb4h1717z671hih5fg.hyper' default-settings='hyper' schema='Extract' sslmode='' tablename='Extract' update-time='06/25/2025 02:58:20 PM' username='tableau_internal_user'>
+        <connection access_mode='readonly' author-locale='en_US' class='hyper' dbname='Data/tableau-temp/#TableauTemp_0x5admw1jmy00712mome7093swll.hyper' default-settings='hyper' schema='Extract' sslmode='' tablename='Extract' update-time='06/28/2025 02:53:47 PM' username='tableau_internal_user'>
           <relation name='Extract' table='[Extract].[Extract]' type='table' />
           <metadata-records>
             <metadata-record class='column'>
@@ -1869,7 +1870,7 @@
                 <page-reference />
               </visual-coordinate>
             </point>
-            <body x='-39' y='-227' />
+            <body x='-82' y='-189' />
           </annotation>
           <annotation class='area' id='5' text-pinx='0.5' text-piny='0.5' text-width-delta='-18'>
             <formatted-text>
@@ -1980,6 +1981,21 @@
               </groupfilter>
             </groupfilter>
           </filter>
+          <manual-sort column='[federated.12h9h9o195mvj515i8ekt1le8l1r].[none:послуга:nk]' direction='ASC'>
+            <dictionary>
+              <bucket>&quot;ДВЗ&quot;</bucket>
+              <bucket>&quot;Паливна&quot;</bucket>
+              <bucket>&quot;Карданний вал&quot;</bucket>
+              <bucket>&quot;Маховик&quot;</bucket>
+              <bucket>&quot;Турбіна&quot;</bucket>
+              <bucket>&quot;МКПП&quot;</bucket>
+              <bucket>&quot;Рульова рейка&quot;</bucket>
+              <bucket>&quot;Пневмо&quot;</bucket>
+              <bucket>&quot;Інше&quot;</bucket>
+              <bucket>&quot;Електрика&quot;</bucket>
+              <bucket>%all%</bucket>
+            </dictionary>
+          </manual-sort>
           <slices>
             <column>[federated.12h9h9o195mvj515i8ekt1le8l1r].[avg:тривалість_днів:qk]</column>
             <column>[federated.12h9h9o195mvj515i8ekt1le8l1r].[none:послуга:nk]</column>
@@ -2098,10 +2114,6 @@
           <filter class='categorical' column='[federated.12h9h9o195mvj515i8ekt1le8l1r].[Action (тип_клієнта)]'>
             <groupfilter function='level-members' level='[тип_клієнта]' user:ui-action-filter='[Action2_35AAD045CD454B3A8C050D6492BDAED7]' user:ui-enumeration='all' user:ui-marker='enumerate' />
           </filter>
-          <filter class='quantitative' column='[federated.12h9h9o195mvj515i8ekt1le8l1r].[avg:тривалість_днів:qk]' included-values='in-range'>
-            <min>-0.47499999999999998</min>
-            <max>26.315789473684209</max>
-          </filter>
           <filter class='categorical' column='[federated.12h9h9o195mvj515i8ekt1le8l1r].[none:послуга:nk]'>
             <groupfilter count='10' end='top' function='end' units='records' user:ui-marker='end' user:ui-top-by-field='true'>
               <groupfilter direction='DESC' expression='AVG([тривалість_днів])' function='order' user:ui-marker='order'>
@@ -2109,8 +2121,15 @@
               </groupfilter>
             </groupfilter>
           </filter>
+          <computed-sort column='[federated.12h9h9o195mvj515i8ekt1le8l1r].[none:послуга:nk]' direction='DESC' using='[federated.12h9h9o195mvj515i8ekt1le8l1r].[avg:тривалість_днів:qk]' />
+          <manual-sort column='[federated.12h9h9o195mvj515i8ekt1le8l1r].[none:рік:ok]' direction='ASC'>
+            <dictionary>
+              <bucket>2025</bucket>
+              <bucket>2024</bucket>
+              <bucket>%all%</bucket>
+            </dictionary>
+          </manual-sort>
           <slices>
-            <column>[federated.12h9h9o195mvj515i8ekt1le8l1r].[avg:тривалість_днів:qk]</column>
             <column>[federated.12h9h9o195mvj515i8ekt1le8l1r].[none:послуга:nk]</column>
             <column>[federated.12h9h9o195mvj515i8ekt1le8l1r].[Action (рік)]</column>
             <column>[federated.12h9h9o195mvj515i8ekt1le8l1r].[Action (тип_клієнта)]</column>
@@ -2135,7 +2154,6 @@
           <style-rule element='label'>
             <format attr='font-weight' field='[federated.12h9h9o195mvj515i8ekt1le8l1r].[none:рік:ok]' value='bold' />
             <format attr='text-align' field='[federated.12h9h9o195mvj515i8ekt1le8l1r].[none:рік:ok]' value='center' />
-            <format attr='text-orientation' field='[federated.12h9h9o195mvj515i8ekt1le8l1r].[none:рік:ok]' value='-90' />
           </style-rule>
           <style-rule element='pane'>
             <format attr='border-width' data-class='total' scope='rows' value='0' />
@@ -2463,6 +2481,10 @@
               </groupfilter>
             </groupfilter>
           </filter>
+          <computed-sort column='[federated.12h9h9o195mvj515i8ekt1le8l1r].[none:послуга:nk]' direction='DESC' using='[federated.12h9h9o195mvj515i8ekt1le8l1r].[__tableau_internal_object_id__].[cnt:auto_repairs.csv_4A201AC411354E0BBB8EAFF6517D37B5:qk]' />
+          <shelf-sorts>
+            <shelf-sort-v2 dimension-to-sort='[federated.12h9h9o195mvj515i8ekt1le8l1r].[none:рік:ok]' direction='DESC' is-on-innermost-dimension='true' measure-to-sort-by='[federated.12h9h9o195mvj515i8ekt1le8l1r].[__tableau_internal_object_id__].[cnt:auto_repairs.csv_4A201AC411354E0BBB8EAFF6517D37B5:qk]' shelf='rows' />
+          </shelf-sorts>
           <slices>
             <column>[federated.12h9h9o195mvj515i8ekt1le8l1r].[none:послуга:nk]</column>
             <column>[federated.12h9h9o195mvj515i8ekt1le8l1r].[none:місяць:ok]</column>
@@ -2838,7 +2860,7 @@
       </viewpoint>
       <simple-id uuid='{F49FDD16-F171-432B-A122-8EEE44B57AE0}' />
     </window>
-    <window class='worksheet' maximized='true' name='Співідношення к-сті ремонтів по типу Клієнтів' tab-color='#dec77b'>
+    <window class='worksheet' name='Співідношення к-сті ремонтів по типу Клієнтів' tab-color='#dec77b'>
       <cards>
         <edge name='left'>
           <strip size='160'>
@@ -3024,7 +3046,7 @@
       </viewpoint>
       <simple-id uuid='{204BEC95-B592-4F7D-92F1-BCF8D6DFF75D}' />
     </window>
-    <window class='worksheet' name='Показники 2025р в порівнянні з 2024р Січень-Травень' tab-color='#4f779a'>
+    <window class='worksheet' maximized='true' name='Показники 2025р в порівнянні з 2024р Січень-Травень' tab-color='#4f779a'>
       <cards>
         <edge name='left'>
           <strip size='160'>
